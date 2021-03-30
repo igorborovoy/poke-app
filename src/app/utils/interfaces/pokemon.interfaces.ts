@@ -3,7 +3,3 @@ export interface Pokemon {
   imageUrl: string;
 }
 
-export interface PokemonList {
-  name: string;
-  url: string;
-}

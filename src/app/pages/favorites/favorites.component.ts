@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Pokemon} from '../../utils/interfaces/pokemon.interfaces';
+import {LocalStorageService} from '../../utils/services/localstorage.service';
 
 @Component({
   selector: 'app-favorites',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesComponent implements OnInit {
 
-  constructor() { }
+  public pokemons: Pokemon[] = [];
+  constructor(private storageService: LocalStorageService) { }
 
   ngOnInit(): void {
+    this.getFavoritePokemons();
   }
 
+  private getFavoritePokemons(): void {
+    this.pokemons = this.storageService.getItems();
+  }
 }

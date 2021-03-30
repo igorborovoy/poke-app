@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FavoritesComponent } from './favorites.component';
 import {FavoritesRoutingModule} from './favorites-routing.module';
 import {CommonModule} from '@angular/common';
+import {PokemonListModule} from '../../shared/pokemon-list/pokemon-list.module';
 
 
 
@@ -9,7 +10,8 @@ import {CommonModule} from '@angular/common';
   declarations: [FavoritesComponent],
   imports: [
     FavoritesRoutingModule,
-    CommonModule
+    CommonModule,
+    PokemonListModule
   ]
 })
 export class FavoritesModule { }

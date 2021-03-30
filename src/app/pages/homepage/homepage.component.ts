@@ -16,7 +16,6 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.initListeners();
-    console.log(this.pokemons);
   }
 
   private initListeners(): void {
