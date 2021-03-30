@@ -1,9 +1,9 @@
-export interface IPokemon {
+export interface Pokemon {
   name: string;
   imageUrl: string;
 }
 
-export interface IPokemonList {
+export interface PokemonList {
   name: string;
   url: string;
 }

@@ -1,3 +1,5 @@
-<div *ngFor="let a of [1,2,3,4,5]">
-  <app-pokemon></app-pokemon>
+<p>pokemon list</p>
+<div *ngFor="let a of pokemons">
+  <app-pokemon [pokemon]="a"></app-pokemon>
 </div>
+
