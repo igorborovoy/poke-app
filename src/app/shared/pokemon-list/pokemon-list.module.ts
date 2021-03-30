@@ -6,7 +6,7 @@ import { PokemonComponent } from '../pokemon/pokemon.component';
 
 
 @NgModule({
-  declarations: [PokemonListComponent, PokemonComponent],
+  declarations: [PokemonListComponent],
   exports: [
     PokemonListComponent
   ],
