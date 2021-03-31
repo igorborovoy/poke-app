@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { PokemonComponent } from './pokemon.component';
 
 
-
 @NgModule({
   declarations: [PokemonComponent],
   exports: [

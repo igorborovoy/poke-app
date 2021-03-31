@@ -1,5 +1,6 @@
 <div class="list">
-  {{pokemon.name}}
+  <span>{{pokemon.name}}</span>
   <img src="{{pokemon.imageUrl}}">
   <button (click)="addToFav(pokemon)">To Favorite</button>
+  <button (click)="delFromFav(pokemon)">Delete from Fav</button>
 </div>

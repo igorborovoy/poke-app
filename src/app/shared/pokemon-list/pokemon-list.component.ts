@@ -8,7 +8,7 @@ import {Pokemon} from '../../utils/interfaces/pokemon.interfaces';
 })
 export class PokemonListComponent implements OnInit {
 
-  @Input() pokemons: Pokemon[] = [];
+  @Input() pokemons: Pokemon[];
   constructor() { }
 
   ngOnInit(): void {

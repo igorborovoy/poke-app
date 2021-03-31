@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpService} from '../../utils/services/http.service';
-import {Pokemon} from '../../utils/interfaces/pokemon.interfaces';
-import {mergeMap} from 'rxjs/operators';
+import { HttpService } from '../../utils/services/http.service';
+import { Pokemon } from '../../utils/interfaces/pokemon.interfaces';
+import { mergeMap } from 'rxjs/operators';
 
 
 @Component({
