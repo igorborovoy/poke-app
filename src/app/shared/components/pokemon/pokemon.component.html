@@ -1,5 +1,5 @@
 <div appChangeColor class="list">
-  <span>{{pokemon.name}}</span>
+  <span>{{pokemon.name | uppercase}}</span>
   <img  src="{{pokemon.imageUrl}}">
   <button (click)="addToFav(pokemon)">To Favorite</button>
   <button (click)="delFromFav(pokemon)">Delete from Fav</button>

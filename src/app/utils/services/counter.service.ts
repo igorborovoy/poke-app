@@ -10,7 +10,7 @@ export class CounterService {
 
   public init(): Observable<number> {
     // this.stream$.subscribe(data => console.log(`Data: ${data} from ${name} pokemon`));
-    return interval(3000);
+    return interval(1000);
   }
 
 }
