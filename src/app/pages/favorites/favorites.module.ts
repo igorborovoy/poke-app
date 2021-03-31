@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FavoritesComponent } from './favorites.component';
 import {FavoritesRoutingModule} from './favorites-routing.module';
 import {CommonModule} from '@angular/common';
-import {PokemonListModule} from '../../shared/pokemon-list/pokemon-list.module';
+import {PokemonListModule} from '../../shared/components/pokemon-list/pokemon-list.module';
 
 
 

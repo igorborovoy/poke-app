@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Pokemon} from '../../utils/interfaces/pokemon.interfaces';
-import {LocalStorageService} from '../../utils/services/localstorage.service';
-import {CounterService} from '../../utils/services/counter.service';
+import {Pokemon} from '../../../utils/interfaces/pokemon.interfaces';
+import {LocalStorageService} from '../../../utils/services/localstorage.service';
+import {CounterService} from '../../../utils/services/counter.service';
 
 @Component({
   selector: 'app-pokemon',
@@ -25,4 +25,5 @@ export class PokemonComponent implements OnInit {
   public delFromFav(item: Pokemon): void {
     this.storageService.deleteItem(item);
   }
+
 }
