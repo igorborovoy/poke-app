@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Pokemon} from '../../../utils/interfaces/pokemon.interfaces';
 import {LocalStorageService} from '../../../utils/services/localstorage.service';
 import {CounterService} from '../../../utils/services/counter.service';
+import {Observable, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-pokemon',
@@ -9,13 +10,15 @@ import {CounterService} from '../../../utils/services/counter.service';
   styleUrls: ['./pokemon.component.css'],
   providers: [CounterService]
 })
-export class PokemonComponent implements OnInit {
+export class PokemonComponent implements OnInit, OnDestroy {
 
+  sub: Subscription;
   @Input() pokemon: Pokemon;
   constructor(private storageService: LocalStorageService, private counterService: CounterService) {  }
 
   ngOnInit(): void {
-    this.counterService.init(this.pokemon.name);
+    this.sub = this.counterService.init()
+      .subscribe(data => console.log(`Data: ${data} from ${this.pokemon.name} pokemon`));
   }
 
   public addToFav(item: Pokemon): void {
@@ -24,6 +27,10 @@ export class PokemonComponent implements OnInit {
 
   public delFromFav(item: Pokemon): void {
     this.storageService.deleteItem(item);
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
 }

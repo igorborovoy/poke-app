@@ -1,16 +1,19 @@
-import { Injectable } from '@angular/core';
-import {BehaviorSubject, interval} from 'rxjs';
+import {Injectable, OnDestroy} from '@angular/core';
+import {BehaviorSubject, interval, Observable} from 'rxjs';
 
 @Injectable()
 export class CounterService {
-  stream$ = interval(3000);
+  // stream$ = interval(3000);
 
-  constructor() {  }
-
-  public init(name: string): void {
-    this.stream$.subscribe( data => console.log(`Data: ${data} from ${name} pokemon`));
+  constructor() {
   }
 
+  public init(): Observable<number> {
+    // this.stream$.subscribe(data => console.log(`Data: ${data} from ${name} pokemon`));
+    return interval(3000);
+  }
+
+}
   /*
 
    second implementation
@@ -44,4 +47,4 @@ export class CounterService {
   public decrement(): void {
     this.stream$.next(this.counter--);
   }*/
-}
+
