@@ -17,8 +17,8 @@ export class PokemonComponent implements OnInit, OnDestroy {
   constructor(private storageService: LocalStorageService, private counterService: CounterService) {  }
 
   ngOnInit(): void {
-    this.sub = this.counterService.init()
-      .subscribe(data => console.log(`Data: ${data} from ${this.pokemon.name} pokemon`));
+    /*this.sub = this.counterService.init()
+      .subscribe(data => console.log(`Data: ${data} from ${this.pokemon.name} pokemon`));*/
   }
 
   public addToFav(item: Pokemon): void {
@@ -30,7 +30,7 @@ export class PokemonComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    /*this.sub.unsubscribe();*/
   }
 
 }

@@ -11,14 +11,9 @@ export class LocalStorageService {
   public setItem(item: Pokemon): void {
     const storage = this.getItems();
     try {
-      if (!storage) {
-        localStorage.setItem('pokemons', JSON.stringify([item]));
-        return;
-      }
       if (storage.find(elem => elem.name === item.name)) {
         return;
       }
-      localStorage.clear();
       localStorage.setItem('pokemons', JSON.stringify([...storage, item]));
       return;
     } catch ( error ) {
@@ -27,7 +22,8 @@ export class LocalStorageService {
   }
 
   public getItems(): Pokemon[]{
-    return JSON.parse(localStorage.getItem('pokemons') as string);
+    const storage = localStorage.getItem('pokemons');
+    return storage ? JSON.parse((storage)) : [];
   }
 
   public deleteItem(item: Pokemon): void {
@@ -35,7 +31,6 @@ export class LocalStorageService {
       const storage = this.getItems().filter( (elem) => {
         return item.name !== elem.name;
       });
-      localStorage.clear();
       localStorage.setItem('pokemons', JSON.stringify(storage));
     } catch ( error ) {
       throw Error(`Error in local storage: ${error}`);
