@@ -6,8 +6,12 @@ import { AppComponent } from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {Interceptor} from './utils/interceptors/interceptor';
 
+
+
 export const httpInterceptorProviders = [
-  { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true}
+  { provide: HTTP_INTERCEPTORS,
+    useClass: Interceptor,
+    multi: true}
 ];
 
 @NgModule({
@@ -19,9 +23,7 @@ export const httpInterceptorProviders = [
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [
-    httpInterceptorProviders
-  ],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,11 @@
 <div appChangeColor class="list">
   <span>{{pokemon.name | uppercase}}</span>
   <img  src="{{pokemon.imageUrl}}">
+  <p>{{likes | async | likes }}</p>
+  <div class="likes">
+    <button (click)="incLikes()">+</button>
+    <button (click)="decLikes()">-</button>
+  </div>
   <button (click)="addToFav(pokemon)">To Favorite</button>
   <button (click)="delFromFav(pokemon)">Delete from Fav</button>
 </div>

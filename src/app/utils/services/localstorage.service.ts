@@ -28,9 +28,7 @@ export class LocalStorageService {
 
   public deleteItem(item: Pokemon): void {
     try {
-      const storage = this.getItems().filter( (elem) => {
-        return item.name !== elem.name;
-      });
+      const storage = this.getItems().filter( (elem) => item.name !== elem.name );
       localStorage.setItem('pokemons', JSON.stringify(storage));
     } catch ( error ) {
       throw Error(`Error in local storage: ${error}`);
