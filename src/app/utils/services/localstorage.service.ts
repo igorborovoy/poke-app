@@ -34,4 +34,11 @@ export class LocalStorageService {
       throw Error(`Error in local storage: ${error}`);
     }
   }
+
+  public getItem(item: Pokemon): boolean {
+    /*return this.getItems().find( elem =>
+      elem.name === item.name
+    );*/
+    return this.getItems().some( elem => item.name === elem.name);
+  }
 }

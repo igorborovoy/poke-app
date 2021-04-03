@@ -10,6 +10,7 @@ import {LocalStorageService} from '../../utils/services/localstorage.service';
 export class FavoritesComponent implements OnInit {
 
   public pokemons: Pokemon[] = [];
+
   constructor(private storageService: LocalStorageService) { }
 
   ngOnInit(): void {
