@@ -19,6 +19,7 @@ export class PokemonComponent implements OnInit, OnDestroy {
 
 
    @Input() pokemon: Pokemon;
+   @Input() fromFav: boolean;
    @Output() del: EventEmitter<any> = new EventEmitter();
 
   constructor(
@@ -30,13 +31,13 @@ export class PokemonComponent implements OnInit, OnDestroy {
     this.isOnFav = this.storageService.getItem(this.pokemon);
   }
 
-  public addToFav(item: Pokemon): void {
-    this.storageService.setItem(item);
+  public addToFav(): void {
+    this.storageService.setItem(this.pokemon);
     this.isOnFav = !this.isOnFav;
   }
 
-  public delFromFav(item: Pokemon): void {
-    this.storageService.deleteItem(item);
+  public delFromFav(): void {
+    this.storageService.deleteItem(this.pokemon);
     this.isOnFav = !this.isOnFav;
     this.del.emit();
   }

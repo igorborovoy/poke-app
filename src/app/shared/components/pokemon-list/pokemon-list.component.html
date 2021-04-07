@@ -1,6 +1,4 @@
-<ng-container *ngIf="!pokemons.length">
-  <p>пусто</p>
-</ng-container>
-<app-pokemon *ngFor="let item of pokemons" [pokemon]="item" (del)="onDel()"></app-pokemon>
+<app-pokemon *ngFor="let item of pokemons" [pokemon]="item" (del)="onDel()" [fromFav]="fromFav"></app-pokemon>
+
 
 

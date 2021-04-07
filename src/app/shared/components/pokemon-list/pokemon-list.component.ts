@@ -10,6 +10,7 @@ import {Pokemon} from '../../../utils/interfaces/pokemon.interfaces';
 export class PokemonListComponent implements OnInit {
 
   @Input() pokemons: Pokemon[];
+  @Input() fromFav: boolean;
   @Output() del = new EventEmitter();
 
   constructor() { }

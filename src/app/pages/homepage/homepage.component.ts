@@ -12,7 +12,10 @@ import {mergeMap} from 'rxjs/operators';
 })
 export class HomepageComponent implements OnInit {
 
+
   public pokemons: Pokemon[] = [];
+  isComplited = false;
+  progressBarValue = 0;
 
   constructor(private httpService: HttpService, private cdr: ChangeDetectorRef) { }
 
@@ -26,9 +29,16 @@ export class HomepageComponent implements OnInit {
         mergeMap( ({url}) => this.httpService.getPokemonInfo(url))
       )
       .subscribe( ({name, sprites: {front_default}}) => {
-        this.pokemons.push({name, imageUrl: front_default});
-        this.pokemons = [...this.pokemons];
+        this.pokemons = [...this.pokemons, {name, imageUrl: front_default}];
+        this.progressBarValue += 100 / 6;
         this.cdr.detectChanges();
       });
+  }
+
+  next(): void {
+    this.progressBarValue = 0;
+    this.pokemons = [];
+    this.httpService.offset += 6;
+    this.initListeners();
   }
 }

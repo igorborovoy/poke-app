@@ -1,1 +1,8 @@
-<app-pokemon-list [pokemons]="pokemons" (del)="onDel()"></app-pokemon-list>
+<div class="container">
+  <app-pokemon-list *ngIf="pokemons.length" [pokemons]="pokemons" (del)="onDel()" [fromFav]="true"></app-pokemon-list>
+  <mat-card *ngIf="!pokemons.length">
+    <mat-card-content>
+      <p>Список пуст!</p>
+    </mat-card-content>
+  </mat-card>
+</div>

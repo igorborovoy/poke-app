@@ -1,15 +1,9 @@
-.list {
+.card {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 10px;
-  background-color: antiquewhite;
-  border: 2px solid;
-}
-
-button {
-  margin: 10px;
-  cursor: pointer;
+  max-width: 250px;
 }
 
 .likes {
@@ -19,11 +13,3 @@ button {
   align-items: center;
 }
 
-.likes span {
-  width: 70px;
-}
-
-.fav-buttons button {
-  width: 140px;
-  height: 40px;
-}

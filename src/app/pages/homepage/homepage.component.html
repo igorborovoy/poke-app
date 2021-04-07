@@ -1,1 +1,5 @@
-<app-pokemon-list [pokemons]="pokemons"></app-pokemon-list>
+<mat-progress-bar mode="determinate" [value]="progressBarValue"></mat-progress-bar>
+<div class="container">
+  <app-pokemon-list [pokemons]="pokemons"></app-pokemon-list>
+  <button mat-button (click)="next()">NEXT</button>
+</div>

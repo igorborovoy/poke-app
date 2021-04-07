@@ -1,14 +1,26 @@
-<div appChangeColor class="list">
-  <p>{{pokemon.name | uppercase}}</p>
-  <img  src="{{pokemon.imageUrl}}">
+<mat-card class="card">
 
-  <div class="likes">
-    <button (click)="incLikes()">+</button>
-    <span>{{likes | async | likes}}</span>
-    <button (click)="decLikes()">-</button>
-  </div>
-  <div class="fav-buttons">
-    <button [hidden]="isOnFav" (click)="addToFav(pokemon)">В избранное</button>
-    <button [hidden]="!isOnFav" (click)="delFromFav(pokemon)">Удалить с избранного</button>
-  </div>
-</div>
+  <mat-card-header>
+    <mat-card-title>{{pokemon.name | uppercase}}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <img  src="{{pokemon.imageUrl}}">
+  </mat-card-content>
+
+  <mat-card-actions class="likes">
+      <button mat-button (click)="incLikes()">+</button>
+      <span>{{likes | async | likes}}</span>
+      <button mat-button (click)="decLikes()">-</button>
+  </mat-card-actions>
+
+  <mat-card-actions>
+      <button  *ngIf="!fromFav" [disabled]="isOnFav" mat-fab (click)="addToFav()">
+        <mat-icon>bookmark_add</mat-icon>
+      </button>
+      <button *ngIf="fromFav" mat-raised-button color="warn" (click)="delFromFav()">
+        Удалить из избранного
+      </button>
+  </mat-card-actions>
+
+</mat-card>

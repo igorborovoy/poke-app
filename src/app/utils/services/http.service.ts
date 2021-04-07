@@ -10,10 +10,12 @@ const BASE_API_URL = 'https://pokeapi.co/api/v2/';
 })
 export class HttpService {
 
+  offset = 0;
+
   constructor(private http: HttpClient) { }
 
   public getListOfPokemons(): Observable<any> {
-    return this.http.get(`${BASE_API_URL}pokemon/?limit=5`)
+    return this.http.get(`${BASE_API_URL}pokemon/?limit=6&offset=${this.offset}`)
       .pipe(
         switchMap( data => (data as any).results)
       );
