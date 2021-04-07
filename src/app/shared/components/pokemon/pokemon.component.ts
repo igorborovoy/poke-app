@@ -1,23 +1,30 @@
-import {Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit, Output, EventEmitter} from '@angular/core';
 import {Pokemon} from '../../../utils/interfaces/pokemon.interfaces';
 import {LocalStorageService} from '../../../utils/services/localstorage.service';
 import {CounterService} from '../../../utils/services/counter.service';
 import {Observable} from 'rxjs';
 
+
 @Component({
   selector: 'app-pokemon',
   templateUrl: './pokemon.component.html',
   styleUrls: ['./pokemon.component.css'],
-  providers: [CounterService]
+  providers: [CounterService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PokemonComponent implements OnInit, OnDestroy {
 
   likes: Observable<number> = this.counterService.counter$;
   isOnFav: boolean;
 
-  @Input() pokemon: Pokemon;
 
-  constructor(private storageService: LocalStorageService, private counterService: CounterService) {  }
+   @Input() pokemon: Pokemon;
+   @Output() del: EventEmitter<any> = new EventEmitter();
+
+  constructor(
+    private storageService: LocalStorageService,
+    private counterService: CounterService
+  ) {  }
 
   ngOnInit(): void {
     this.isOnFav = this.storageService.getItem(this.pokemon);
@@ -31,6 +38,7 @@ export class PokemonComponent implements OnInit, OnDestroy {
   public delFromFav(item: Pokemon): void {
     this.storageService.deleteItem(item);
     this.isOnFav = !this.isOnFav;
+    this.del.emit();
   }
 
   public incLikes(): void {

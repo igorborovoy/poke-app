@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Pokemon} from '../../utils/interfaces/pokemon.interfaces';
 import {LocalStorageService} from '../../utils/services/localstorage.service';
 
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
-  styleUrls: ['./favorites.component.css']
+  styleUrls: ['./favorites.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FavoritesComponent implements OnInit {
 
@@ -20,4 +21,9 @@ export class FavoritesComponent implements OnInit {
   private getFavoritePokemons(): void {
     this.pokemons = this.storageService.getItems();
   }
+
+  onDel(): void {
+    this.getFavoritePokemons();
+  }
+
 }
