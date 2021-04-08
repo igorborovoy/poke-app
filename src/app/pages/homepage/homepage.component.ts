@@ -16,6 +16,7 @@ export class HomepageComponent implements OnInit {
   public pokemons: Pokemon[] = [];
   isComplited = false;
   progressBarValue = 0;
+  searchString = '';
 
   constructor(private httpService: HttpService, private cdr: ChangeDetectorRef) { }
 
